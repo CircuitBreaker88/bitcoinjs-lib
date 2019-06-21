@@ -8,7 +8,7 @@ var typeforce = require('typeforce')
 var types = require('./types')
 
 function fromBase58Check (address) {
-  var payload = bs58check.decode(address)
+  var payload = Buffer.from(bs58check.decode(address))
 
   // TODO: 4.0.0, move to "toOutputScript"
   if (payload.length < 21) throw new TypeError(address + ' is too short')
